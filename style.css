@@ -415,8 +415,14 @@ footer {
         font-size: 2rem;
     }
 
-    .accueil, #settingsSection {
-        width: 95px;
-        padding: 2rem 1 rem;
+    .menu-btn {
+        width: 100%;
+    }
+
+    #settingsSection label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
     }
 }
