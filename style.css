@@ -1,0 +1,422 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* VARIABLES DE BASE */
+:root {
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #222;
+    --accent: #4a90e2;
+    --border: #ddd;
+}
+
+/* MODE LIGHT / DARK (fallback système) */
+body.light {
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #222;
+    --border: #ddd;
+}
+
+body.dark {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --text: #fff;
+    --border: #333333;
+}
+
+/* BODY GLOBAL */
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CLASSIC */
+body.theme-classic.light {
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #222;
+    --accent: #4a90e2;
+    --border: #ddd;
+}
+
+body.theme-classic.dark {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --text: #fff;
+    --accent: #4a90e2;
+    --border: #333333;
+}
+
+/* NEON */
+body.theme-neon.light {
+    --bg: #f7fff7;
+    --card: #ffffff;
+    --text: #111;
+    --accent: #00ff88;
+    --border: #00cc6a;
+}
+
+body.theme-neon.dark {
+    --bg: #050505;
+    --card: #101010;
+    --text: #00ff88;
+    --accent: #00ff88;
+    --border: #00ff88;
+}
+
+/* OCEAN */
+body.theme-ocean.light {
+    --bg: #e8f6ff;
+    --card: #ffffff;
+    --text: #111;
+    --accent: #00334d;
+    --border: #7bcfff;
+}
+
+body.theme-ocean.dark {
+    --bg: #001d33;
+    --card: #00334d;
+    --text: #dff6ff;
+    --accent: #00c8ff;
+    --border: #006699;
+}
+
+/* FIRE */
+body.theme-fire.light {
+    --bg: #fff3eb;
+    --card: #ffffff;
+    --text: #661f00;
+    --accent: #ff5a1f;
+    --border: #ff9c73;
+}
+
+body.theme-fire.dark {
+    --bg: #1f0d05;
+    --card: #33160a;
+    --text: #ffd5c2;
+    --accent: #ff6a00;
+    --border: #994400;
+}
+
+/* CYBER */
+body.theme-cyber.light {
+    --bg: #f5f0ff;
+    --card: #ffffff;
+    --text: #2d0052;
+    --accent: #a020f0;
+    --border: #d1a3ff;
+}
+
+body.theme-cyber.dark {
+    --bg: #120018;
+    --card: #220033;
+    --text: #f3ddff;
+    --accent: #cc00ff;
+    --border: #8000aa;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--card);
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Switch mode clair/sombre */
+.switch-mode {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+.switch-mode input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: var(--border);
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 3px;
+    top: 3px;
+    background: var(--card);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.switch-mode input:checked + .slider {
+    background: var(--accent);
+}
+
+.switch-mode input:checked + .slider::before {
+    transform: translateX(30px);
+}
+
+/* MAIN */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* ACCUEIL */
+.accueil {
+    text-align: center;
+    background: var(--card);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.accueil h2 {
+    margin-bottom: 0.5rem;
+}
+
+.accueil p {
+    margin-bottom: 2rem;
+    opacity: 0.7;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menu-btn {
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 2px solid var(--accent);
+    background: var(--card);
+    color: var(--accent);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-btn:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.02);
+}
+
+.menu-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.menu-btn:hover::after {
+    opacity: 1;;
+}
+/*Section*/
+section {
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* JEU */
+#jeu {
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    margin: 2rem auto;
+    width: fit-content;
+}
+
+/*Animation au clic*/
+.cell {
+    width: 100px;
+    height: 100px;
+    background: var(--card);
+    border: 3px solid var(--border);
+    border-radius: 10px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    animation: pop 0.2s ease forwards;
+}
+
+.cell {
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.cell:active {
+    transform: scale(0.92);
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ANIMATION VICTOIRE */
+.winner {
+    background: var(--accent);
+    color: white;
+    
+}
+
+/*Parametres*/
+#settingsSection {
+    text-align: center;
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+}
+
+#settingsSection h2 {
+    margin-bottom: 1rem;
+}
+
+#settingsSection label {
+    display: block;
+    padding: 0.8rem;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--card);
+    transition: 0.3S;
+}
+
+#settingsSection label:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.02);
+}
+
+/* Button style*/
+button {
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/*Boutons sécondaires*/
+.btn-secondaire {
+    padding: 0.8rem;
+    margin: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    background: var(--card);
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--text);
+}
+
+.btn-secondaire:hover{
+    background: var(--accent);
+    color: var(--card);
+}
+
+
+@keyframes winnerFlash {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--card);
+    border-top: 2px solid var(--border);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/*Responsive*/
+@media (max-width : 500px) {
+    header {
+        padding: 1rem;
+    }
+    .board {
+        grid-template-columns: repeat(3 ,80px);
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .accueil, #settingsSection {
+        width: 95px;
+        padding: 2rem 1 rem;
+    }
+}

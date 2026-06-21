@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEU DE MORPION</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Game Center</h1>
+        <div class="switch-mode">
+            <input type="checkbox" id="toggleMode">
+            <label for="toggleMode" class="slider"></label>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ACCUEIL -->
+        <section id="accueil" class="accueil">
+            <h2>Bienvenue sur Morpion Mortal Game</h2>
+            <p>Choisis un mode pour commencer</p>
+
+            <div class="menu">
+                <button class="menu-btn" id="btnPVP">
+                    JOUEUR VS JOUEUR
+                </button>
+
+                <button class="menu-btn" id="btnPVE">
+                    JOUEUR VS IA
+                </button>
+
+                <button class="menu-btn" id="btnScore">
+                    SCORE
+                </button>
+
+                <button class="menu-btn" id="btnAide">
+                    AIDE
+                </button>
+
+                <button class="menu-btn" id="btnSettings">
+                    PARAMÈTRES
+                </button>
+            </div>
+        </section>
+
+        <!-- SCORE TOTAL -->
+        <section id="scoreSection" style="display:none;">
+            <h2>Ton Score Total</h2>
+
+            <div class="score-box">
+                <button id="btnResetScore" class="btn-secondaire">Réintialiser le score</button>
+                <p>
+                    Victoires :
+                    <span id="scoreV">0</span>
+                </p>
+
+                <p>
+                    Défaites :
+                    <span id="scoreD">0</span>
+                </p>
+
+                <p>
+                    Matchs nuls :
+                    <span id="scoreNul">0</span>
+                </p>
+            </div>
+
+            <button id="btnRetourScore" class="btn-secondaire">
+                Retour
+            </button>
+        </section>
+        <section id="aideSection" style="display: none;">
+            <h2>Comment jouer ?</h2>
+
+            <p>
+                Le joueur X commence toujours. On peut gagner en alignant 3 symboles
+            </p>
+
+            <ul>
+                <li>Horizontalement</li>
+                <li>Verticalement</li>
+                <li>Diagonalement</li>
+            </ul>
+
+            <button id="btnSimulation" class="btn-secondaire">Simulation</button>
+            <button id="btnRetourAide" class="btn-secondaire">ACCEUIL</button>
+
+        </section>
+
+        <section id="simulationSection" style="display: none;">
+            <h2>Simulation</h2>
+
+            <p id="simulationText">
+                La simulation va commencer.
+            </p>
+            <div id="simulationBoard" class="board"></div>
+            
+            <button id="btnRetourSimulation" style="display: none;" class="btn-secondaire">RETOUR À L'ACCEUIL</button>
+        </section>
+
+        <!-- CHOIX DU PION -->
+        <section id="choixPion" style="display:none;">
+            <h2>Choisis ton pion</h2>
+
+            <p>Tu veux jouer X ou O ?</p>
+
+            <div class="menu">
+                <button class="menu-btn" id="choixX">
+                    Jouer X
+                </button>
+
+                <button class="menu-btn" id="choixO">
+                    Jouer O
+                </button>
+            </div>
+
+            <button id="btnRetournChoix" class="btn-secondaire">
+                Retour
+            </button>
+        </section>
+
+        <!-- JEU -->
+        <section id="jeu" style="display:none;">
+
+            <h2 id="info">
+                Tour : X
+            </h2>
+
+            <div class="score-session">
+                <p>
+                    Session :
+                    V <span id="sessionX">0</span>
+                    |
+                    D <span id="sessionO">0</span>
+                    |
+                    N <span id="sessionNul">0</span>
+                </p>
+            </div>
+
+            <div class="board" id="board"></div>
+
+            <div class="btn-actions">
+
+                <button id="btnRetour" class="btn-secondaire">
+                    MENU D'ACCUEIL
+                </button>
+
+                <button id="btnRejouer" class="btn-secondaire">
+                    REJOUER
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="settingsSection" style="display: none;">
+            <h2>Paramètres</h2>
+            <h3>Choix du thème</h3>
+            <div class="theme-group">
+                <label>
+                    <input type="radio" name="theme" value="theme-classic">
+                    Classic
+                </label>
+
+                <label>
+                    <input type="radio" name="theme" value="theme-neon">
+                    Neon
+                </label>
+
+                <label>
+                    <input type="radio" name="theme" value="theme-ocean">
+                    Ocean
+                </label>
+
+                <label>
+                    <input type="radio" name="theme" value="theme-fire">
+                    Fire
+                </label>
+
+                <label>
+                    <input type="radio" name="theme" value="theme-cyber">
+                    Cyber
+                </label>
+            </div>
+
+            <h3>Mode d'affichage</h3>
+
+            <div class="theme-group">
+                <label>
+                    <input type="radio" name="mode" value="light">
+                    Clair
+                </label>
+
+                <label>
+                    <input type="radio" name="mode" value="dark">
+                    Sombre
+                </label>
+
+                <label>
+                    <input type="radio" name="mode" value="system">
+                    Système
+                </label>
+            </div>
+
+            <button id="btnRetourSettings" class="btn-secondaire">
+                Retour
+            </button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Game Center | BlackAnon Developer - Tous droits réservés
+        </p>
+    </footer>
+
+    <script src="game.js"></script>
+
+</body>
+</html>
